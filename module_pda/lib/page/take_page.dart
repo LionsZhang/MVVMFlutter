@@ -10,20 +10,20 @@ import 'package:library_base/widget/textfield/oder_text_field.dart';
 import 'package:module_pda/pda_router.dart';
 import 'package:module_pda/viewmodel/take_view_model.dart';
 
-///入库页面
-class PutPage extends StatefulWidget {
-  PutPage({
+///收货页面
+class TakePage extends StatefulWidget {
+  TakePage({
     Key? key,
   }) : super(key: key);
 
   @override
-  _PutPageState createState() => _PutPageState();
+  _TakePageState createState() => _TakePageState();
 }
 
-class _PutPageState extends State<PutPage>
+class _TakePageState extends State<TakePage>
     with
-        BasePageMixin<PutPage>,
-        AutomaticKeepAliveClientMixin<PutPage>,
+        BasePageMixin<TakePage>,
+        AutomaticKeepAliveClientMixin<TakePage>,
         SingleTickerProviderStateMixin {
   final TextEditingController _phoneController = TextEditingController();
   final FocusNode _phoneNode = FocusNode();
@@ -80,7 +80,7 @@ class _PutPageState extends State<PutPage>
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("入库-扫描箱唛",
+                              Text("入库-扫描快递单号",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -93,6 +93,24 @@ class _PutPageState extends State<PutPage>
                               Divider(
                                 height: 1,
                                 color: Colors.grey,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadiusDirectional.circular(15),
+                                    color: Colours.dark_app_main),
+                                child: Text("点击搜索用户名",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.0,
+                                      height: 1.2,
+                                    )),
                               ),
                               SizedBox(
                                 height: 20,

@@ -78,7 +78,7 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
               Expanded(
                 flex: 1,
                 child: GestureDetector(
-                  onTap: () => Routers.navigateTo(context, Routers.putPage),
+                  onTap: () => Routers.navigateTo(context, Routers.takePage),
                   child: Container(
                     height: 50,
                     alignment: Alignment.center,
@@ -100,7 +100,7 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
               Expanded(
                   flex: 1,
                   child: GestureDetector(
-                    onTap: () => Routers.navigateTo(context, Routers.putPage),
+                    onTap: () => Routers.navigateTo(context, Routers.pickPage),
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,
@@ -126,7 +126,7 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
               Expanded(
                   flex: 1,
                   child: GestureDetector(
-                    onTap: () => Routers.navigateTo(context, Routers.putPage),
+                    onTap: () => Routers.navigateTo(context, Routers.expressDeliveryPage),
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,

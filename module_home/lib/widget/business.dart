@@ -118,7 +118,7 @@ class _BusinessState extends State<Business> with BasePageMixin<Business> {
               Expanded(
                   flex: 1,
                   child: GestureDetector(
-                    onTap: () => Routers.navigateTo(context, Routers.putPage),
+                    onTap: () => Routers.navigateTo(context, Routers.upcPage),
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,

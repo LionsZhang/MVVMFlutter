@@ -6,24 +6,24 @@ import 'package:library_base/res/colors.dart';
 import 'package:library_base/router/routers.dart';
 import 'package:library_base/utils/image_util.dart';
 import 'package:library_base/utils/object_util.dart';
+import 'package:library_base/utils/screen_util.dart';
 import 'package:library_base/widget/textfield/oder_text_field.dart';
 import 'package:module_pda/pda_router.dart';
 import 'package:module_pda/viewmodel/take_view_model.dart';
 
-///入库页面
-class PutPage extends StatefulWidget {
-  PutPage({
+class PickPage extends StatefulWidget {
+  PickPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  _PutPageState createState() => _PutPageState();
+  _PickPageState createState() => _PickPageState();
 }
 
-class _PutPageState extends State<PutPage>
+class _PickPageState extends State<PickPage>
     with
-        BasePageMixin<PutPage>,
-        AutomaticKeepAliveClientMixin<PutPage>,
+        BasePageMixin<PickPage>,
+        AutomaticKeepAliveClientMixin<PickPage>,
         SingleTickerProviderStateMixin {
   final TextEditingController _phoneController = TextEditingController();
   final FocusNode _phoneNode = FocusNode();
@@ -31,7 +31,7 @@ class _PutPageState extends State<PutPage>
   @override
   bool get wantKeepAlive => true;
 
-  late TakeViewModel _takeViewModel;
+  late TakeViewModel _putViewModel;
 
   @override
   void initState() {
@@ -46,8 +46,8 @@ class _PutPageState extends State<PutPage>
   }
 
   void initViewModel() {
-    _takeViewModel = TakeViewModel();
-    _takeViewModel.getHomeAll();
+    _putViewModel = TakeViewModel();
+    _putViewModel.getHomeAll();
   }
 
   void _checkInput() {
@@ -65,7 +65,7 @@ class _PutPageState extends State<PutPage>
     String? package = PdaRouter.isRunModule ? null : Constant.modulePda;
     return Scaffold(
         body: ProviderWidget<TakeViewModel>(
-            model: _takeViewModel,
+            model: _putViewModel,
             builder: (context, model, child) {
               return Scaffold(
                 body: Scrollbar(
@@ -80,7 +80,7 @@ class _PutPageState extends State<PutPage>
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("入库-扫描箱唛",
+                              Text("分拣-扫描UPC到货位",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -130,7 +130,7 @@ class _PutPageState extends State<PutPage>
                                               BorderRadiusDirectional.circular(
                                                   16),
                                           color: Colours.dark_app_main),
-                                      child: Text("输入",
+                                      child: Text("更新货位",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16.0,

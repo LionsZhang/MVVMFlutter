@@ -15,6 +15,10 @@ class Routers {
   static String mainPage = '/mainPage';
   static String homePage = '/homePage';
   static String putPage = '/putPage';
+  static String pickPage = '/pickPage';
+  static String takePage = '/takePage';
+  static String upcPage = '/upcPage';
+  static String expressDeliveryPage = '/expressDeliveryPage';
   static String minePage = '/minePage';
   static String loginPage = '/loginPage';
   static void init(List<IRouter> listRouter) {

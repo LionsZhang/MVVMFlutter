@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:library_base/constant/constant.dart';
-import 'package:library_base/event/event.dart';
-import 'package:library_base/event/main_jump_event.dart';
-import 'package:library_base/generated/l10n.dart';
 import 'package:library_base/mvvm/base_page.dart';
 import 'package:library_base/res/colors.dart';
-import 'package:library_base/res/gaps.dart';
-import 'package:library_base/res/styles.dart';
 import 'package:library_base/router/routers.dart';
-import 'package:library_base/utils/image_util.dart';
 import 'package:module_home/home_router.dart';
 
 class Fba extends StatefulWidget {

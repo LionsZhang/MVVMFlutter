@@ -9,14 +9,14 @@ import 'package:library_base/mvvm/view_state_model.dart';
 import 'package:library_base/net/apis.dart';
 import 'package:library_base/net/dio_util.dart';
 
-class PutViewModel extends ViewStateModel {
+class TakeViewModel extends ViewStateModel {
 
   GlobalKey<BasePageMixin> communityPageKey = GlobalKey<BasePageMixin>();
   GlobalKey<BasePageMixin> articlePageKey = GlobalKey<BasePageMixin>();
 
   StreamSubscription? quoteSubscription;
 
-  PutViewModel() : super(viewState: ViewState.first);
+  TakeViewModel() : super(viewState: ViewState.first);
 
 
 
