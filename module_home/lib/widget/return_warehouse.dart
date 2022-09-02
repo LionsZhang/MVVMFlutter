@@ -46,57 +46,61 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
           // borderRadius: BorderRadius.circular(8.0), //圆角
           color: Colours.white,
         ),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
+          Row(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Container(
-                    width: 20,
-                    height: 20,
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadiusDirectional.circular(10),
-                        color: Colours.item_blue),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text("退货入库",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16.0,
-                        height: 1.2,
-                      )),
-                ],
+              Container(
+                width: 20,
+                height: 20,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadiusDirectional.circular(10),
+                    color: Colours.item_blue),
               ),
               SizedBox(
-               height: 20,
+                width: 10,
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 50,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(16),
-                          color: Colours.dark_app_main),
-                      child: Text("收货",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16.0,
-                            height: 1.2,
-                          )) ,
-                    ),
+              Text("退货入库",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16.0,
+                    height: 1.2,
+                  )),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: GestureDetector(
+                  onTap: () => Routers.navigateTo(context, Routers.putPage),
+                  child: Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadiusDirectional.circular(16),
+                        color: Colours.dark_app_main),
+                    child: Text("收货",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          height: 1.2,
+                        )),
                   ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Expanded(
-                    flex: 1,
+                ),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    onTap: () => Routers.navigateTo(context, Routers.putPage),
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,
@@ -108,19 +112,21 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
                             color: Colors.white,
                             fontSize: 16.0,
                             height: 1.2,
-                          )) ,
+                          )),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    flex: 1,
+                  )),
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                  flex: 1,
+                  child: GestureDetector(
+                    onTap: () => Routers.navigateTo(context, Routers.putPage),
                     child: Container(
                       height: 50,
                       alignment: Alignment.center,
@@ -132,21 +138,21 @@ class _ReturnWarehouseState extends State<ReturnWarehouse>
                             color: Colors.white,
                             fontSize: 16.0,
                             height: 1.2,
-                          )) ,
+                          )),
                     ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 50,
-                      alignment: Alignment.center,
-                    ),
-                  ),
-                ],
+                  )),
+              SizedBox(
+                width: 15,
               ),
-            ]));
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 50,
+                  alignment: Alignment.center,
+                ),
+              ),
+            ],
+          ),
+        ]));
   }
 }

@@ -23,6 +23,7 @@ import 'package:library_base/utils/sp_util.dart';
 import 'package:library_base/utils/toast_util.dart';
 import 'package:module_home/home_router.dart';
 import 'package:module_mine/mine_router.dart';
+import 'package:module_pda/pda_router.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:umeng_common_sdk/umeng_common_sdk.dart';
 
@@ -89,7 +90,8 @@ class _MyAppState extends State<MyApp> {
     Routers.init([
       MainRouter(),
       HomeRouter(),
-      MineRouter()
+      MineRouter(),
+      PdaRouter()
     ]);
   }
 

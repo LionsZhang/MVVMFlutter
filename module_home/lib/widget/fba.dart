@@ -23,8 +23,7 @@ class Fba extends StatefulWidget {
   _FbaState createState() => _FbaState();
 }
 
-class _FbaState extends State<Fba>
-    with BasePageMixin<Fba> {
+class _FbaState extends State<Fba> with BasePageMixin<Fba> {
   @override
   void initState() {
     super.initState();
@@ -71,27 +70,30 @@ class _FbaState extends State<Fba>
                 ],
               ),
               SizedBox(
-               height: 20,
+                height: 20,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 50,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(16),
-                          color: Colours.dark_app_main),
-                      child: Text("入库",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16.0,
-                            height: 1.2,
-                          )) ,
-                    ),
-                  ),
+              Expanded(
+                        flex: 1,
+                        child:      GestureDetector(
+                          onTap: () => Routers.navigateTo(context, Routers.putPage),
+                          child: Container(
+                          height: 50,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(16),
+                              color: Colours.dark_app_main),
+                          child: Text("入库",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16.0,
+                                height: 1.2,
+                              )),
+                        ),
+                      )),
                   SizedBox(
                     width: 15,
                   ),

@@ -12,13 +12,9 @@ class Routers {
   static FluroRouter? router;
 
   static Map<String, PageBuilder> pageRounters = {};
-
-
   static String mainPage = '/mainPage';
-
   static String homePage = '/homePage';
-
-
+  static String putPage = '/putPage';
   static String minePage = '/minePage';
   static String loginPage = '/loginPage';
   static void init(List<IRouter> listRouter) {

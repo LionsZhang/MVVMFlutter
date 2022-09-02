@@ -19,6 +19,8 @@ dependencies:
     path: module_home
   module_mine:
     path: module_mine
+  module_pda:
+    path: module_pda
 dev_dependencies:
   flutter_test:
     sdk: flutter

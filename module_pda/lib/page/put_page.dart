@@ -3,29 +3,27 @@
 import 'package:flutter/material.dart';
 import 'package:library_base/mvvm/base_page.dart';
 import 'package:library_base/mvvm/provider_widget.dart';
-import 'package:module_home/viewmodel/home_model.dart';
-import 'package:module_home/widget/business.dart';
-import 'package:module_home/widget/fba.dart';
-import 'package:module_home/widget/return_warehouse.dart';
+import 'package:module_pda/viewmodel/put_view_model.dart';
 
 
-class HomePage extends StatefulWidget {
 
-  HomePage({
+class PutPage extends StatefulWidget {
+
+  PutPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _PutPageState createState() => _PutPageState();
 }
 
-class _HomePageState extends State<HomePage>with BasePageMixin<HomePage>, AutomaticKeepAliveClientMixin<HomePage>, SingleTickerProviderStateMixin{
+class _PutPageState extends State<PutPage>with BasePageMixin<PutPage>, AutomaticKeepAliveClientMixin<PutPage>, SingleTickerProviderStateMixin{
 
   @override
   bool get wantKeepAlive => true;
 
 
-  late HomeModel _homeModel;
+  late PutViewModel _putViewModel;
 
   @override
   void initState() {
@@ -40,8 +38,8 @@ class _HomePageState extends State<HomePage>with BasePageMixin<HomePage>, Automa
   }
 
   void initViewModel() {
-    _homeModel = HomeModel();
-    _homeModel.getHomeAll();
+    _putViewModel = PutViewModel();
+    _putViewModel.getHomeAll();
   }
 
 
@@ -50,8 +48,8 @@ class _HomePageState extends State<HomePage>with BasePageMixin<HomePage>, Automa
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-        body: ProviderWidget<HomeModel>(
-            model: _homeModel,
+        body: ProviderWidget<PutViewModel>(
+            model: _putViewModel,
             builder: (context, model, child) {
               return Scaffold(
                 body: Scrollbar(
@@ -69,9 +67,7 @@ class _HomePageState extends State<HomePage>with BasePageMixin<HomePage>, Automa
                           SizedBox(
                             height: 10,
                           ),
-                          ReturnWarehouse(),
-                          Fba(),
-                          Business(),
+
                         ],
                       ),
                       width: double.infinity,

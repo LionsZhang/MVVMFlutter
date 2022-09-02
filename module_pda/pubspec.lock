@@ -107,7 +107,7 @@ packages:
     source: hosted
     version: "3.0.2"
   cupertino_icons:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: cupertino_icons
       url: "https://pub.flutter-io.cn"
@@ -231,7 +231,7 @@ packages:
     source: hosted
     version: "5.4.3+7"
   flutter_localizations:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -342,7 +342,7 @@ packages:
       name: image_picker_ios
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.8.5+6"
+    version: "0.8.6"
   image_picker_platform_interface:
     dependency: transitive
     description:
@@ -374,7 +374,7 @@ packages:
   library_base:
     dependency: "direct main"
     description:
-      path: library_base
+      path: "../library_base"
       relative: true
     source: path
     version: "0.0.1"
@@ -413,27 +413,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.2"
-  module_home:
-    dependency: "direct main"
-    description:
-      path: module_home
-      relative: true
-    source: path
-    version: "1.0.0+1"
-  module_mine:
-    dependency: "direct main"
-    description:
-      path: module_mine
-      relative: true
-    source: path
-    version: "1.0.0+1"
-  module_pda:
-    dependency: "direct main"
-    description:
-      path: module_pda
-      relative: true
-    source: path
-    version: "1.0.0+1"
   nested:
     dependency: transitive
     description:
@@ -540,7 +519,7 @@ packages:
     source: hosted
     version: "2.1.2"
   pda_scanner:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pda_scanner
       url: "https://pub.flutter-io.cn"
@@ -914,14 +893,14 @@ packages:
       name: webview_flutter_android
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.9.5"
+    version: "2.10.0"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
       name: webview_flutter_platform_interface
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.9.2"
+    version: "1.9.3"
   webview_flutter_wkwebview:
     dependency: transitive
     description:
