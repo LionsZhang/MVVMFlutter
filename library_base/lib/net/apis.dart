@@ -21,7 +21,7 @@ class Apis {
 
   //测试环境
   static const String PRIVATE_KEY = "5ffF03b858D5Fd16";
-  static const String BASE_URL_TEST = 'http://81.70.145.64/api';
+  static const String BASE_URL_TEST = 'http://api.warehouse.bm.ccisen.com/';
   static const String BASE_URL_ARITCLE_TEST = 'https://test-news.idengta.com/api';
   static const String WEB_SOCKET_URL_TEST = 'ws://81.70.145.64:8083/api/ws';
 
@@ -33,7 +33,7 @@ class Apis {
   static const String COIN_BITCOIN = 'bitcoin';
   static const String COIN_ETHEREUM = 'ethereum';
 
-  static const String URL_LOGIN = '/login';
+  static const String URL_LOGIN = '/api/v1/pda/other/login';
   static const String URL_WECHAT_LOGIN = '/wechat/login';
   static const String URL_BIND_PHONE = '/account/bingphone';
   static const String URL_BIND_WECHAT = '/account/bingthrid';

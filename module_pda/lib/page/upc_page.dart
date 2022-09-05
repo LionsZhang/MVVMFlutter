@@ -99,7 +99,7 @@ class _UpcPageState extends State<UpcPage>
                           width: double.infinity,
                         ),
                         SizedBox(
-                          height:500,
+                          height:400,
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,

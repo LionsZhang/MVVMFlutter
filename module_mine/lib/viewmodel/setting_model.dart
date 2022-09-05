@@ -38,7 +38,7 @@ class SettingModel extends ViewStateModel {
         onSuccess: (dynamic data) {
 
           Account account = RTAccount.instance()!.getActiveAccount()!;
-          account.head_ico = data;
+          // account.head_ico = data;
           RTAccount.instance()!.setActiveAccount(account);
           RTAccount.instance()!.saveAccount();
 

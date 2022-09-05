@@ -129,6 +129,10 @@ class BorderStyles {
       borderRadius: BorderRadius.all(Radius.circular(0.0)),
       borderSide:  BorderSide(color: Colours.white)
   );
+  static const OutlineInputBorder outlineInputR2 = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(0.0)),
+      borderSide:  BorderSide(color: Colours.app_main)
+  );
 
   static const UnderlineInputBorder underlineInputMain = UnderlineInputBorder(
       borderSide:  BorderSide(color: Colours.app_main)
@@ -136,6 +140,9 @@ class BorderStyles {
 
   static const UnderlineInputBorder underlineInputGray = UnderlineInputBorder(
       borderSide:  BorderSide(color: Colours.border_gray)
+  );
+  static const UnderlineInputBorder underlineInputTransparent = UnderlineInputBorder(
+      borderSide:  BorderSide(color: Colours.transparent)
   );
 }
 

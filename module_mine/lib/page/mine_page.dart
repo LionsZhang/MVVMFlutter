@@ -1,28 +1,16 @@
 
-import 'dart:async';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:library_base/constant/constant.dart';
 import 'package:library_base/generated/l10n.dart';
 import 'package:library_base/global/rt_account.dart';
 import 'package:library_base/model/account.dart';
 import 'package:library_base/mvvm/base_page.dart';
 import 'package:library_base/mvvm/provider_widget.dart';
-import 'package:library_base/net/apis.dart';
 import 'package:library_base/res/colors.dart';
 import 'package:library_base/res/gaps.dart';
 import 'package:library_base/res/styles.dart';
-import 'package:library_base/router/routers.dart';
-import 'package:library_base/utils/path_util.dart';
-import 'package:library_base/utils/toast_util.dart';
-import 'package:library_base/widget/clickbar/mine_clickbar.dart';
 import 'package:library_base/widget/common_scroll_view.dart';
 import 'package:library_base/widget/dialog/dialog_util.dart';
-import 'package:library_base/widget/image/local_image.dart';
 import 'package:module_mine/viewmodel/setting_model.dart';
-import 'package:module_mine/widget/mine_appbar.dart';
-import 'package:path_provider/path_provider.dart';
 
 class MinePage extends StatefulWidget {
 

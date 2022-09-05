@@ -1,30 +1,24 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:library_base/constant/constant.dart';
 import 'package:library_base/generated/l10n.dart';
-import 'package:library_base/mvvm/base_page.dart';
-import 'package:library_base/model/account.dart';
 import 'package:library_base/global/rt_account.dart';
+import 'package:library_base/model/account.dart';
+import 'package:library_base/mvvm/base_page.dart';
 import 'package:library_base/net/apis.dart';
 import 'package:library_base/res/colors.dart';
 import 'package:library_base/res/gaps.dart';
-import 'package:library_base/res/styles.dart';
-import 'package:library_base/router/parameters.dart';
 import 'package:library_base/router/routers.dart';
+import 'package:library_base/utils/date_util.dart';
+import 'package:library_base/utils/object_util.dart';
+import 'package:library_base/utils/other_util.dart';
+import 'package:library_base/utils/toast_util.dart';
 import 'package:library_base/widget/button/gradient_button.dart';
-import 'package:library_base/widget/button/round_checkbox.dart';
 import 'package:library_base/widget/common_scroll_view.dart';
 import 'package:library_base/widget/dialog/dialog_util.dart';
 import 'package:library_base/widget/image/local_image.dart';
 import 'package:library_base/widget/textfield/account_text_field.dart';
 import 'package:library_base/widget/textfield/pwd_text_field.dart';
-import 'package:library_base/utils/date_util.dart';
-import 'package:library_base/utils/encrypt_util.dart';
-import 'package:library_base/utils/object_util.dart';
-import 'package:library_base/utils/other_util.dart';
-import 'package:library_base/utils/toast_util.dart';
 import 'package:module_mine/mine_router.dart';
 import 'package:module_mine/viewmodel/login_model.dart';
 
@@ -42,32 +36,31 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
 
-  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _accountController = TextEditingController();
   final TextEditingController _pwdController = TextEditingController();
-  final FocusNode _phoneNode = FocusNode();
+  final FocusNode _accountNode = FocusNode();
   final FocusNode _pwdNode = FocusNode();
 
   late LoginModel _loginModel;
 
-  String? _area_code;
   bool _loginEnabled = false;
-  bool _agreeChecked = false;
+  bool _agreeChecked = true;
 
   @override
   void initState() {
     super.initState();
 
     initView();
+    _accountController.text="whop1";
+    _pwdController.text="abc123456";
     initViewModel();
 
     _checkInput();
   }
 
   void initView() {
-    _area_code = '+86';
-    _agreeChecked = widget.agreeChecked;
     if (!ObjectUtil.isEmpty(widget.phone)) {
-      _phoneController.text = widget.phone!;
+      _accountController.text = widget.phone!;
 
     } else {
       Account? account = RTAccount.instance()!.loadAccount();
@@ -75,7 +68,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
         // var t = account.phone?.split(' ');
         // _area_code = t?.first;
         // _phoneController.text = t?.last;
-        _phoneController.text = account.phone!;
+        _accountController.text = account.account!;
       }
     }
   }
@@ -107,14 +100,11 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
       } else if (_loginModel.isSuccess) {
         closeProgress();
 
-        String? phone = _loginModel.loginResult?.account_info?.phone;
-
-        if (ObjectUtil.isEmpty(phone)) {
-          // Routers.navigateTo(context, Routers.bindPhonePage);
-
-        } else {
+        String? account = _loginModel.loginResult?.data?.account;
+        if (!ObjectUtil.isEmpty(account)) {
           ToastUtil.success(S.current.logingSuccess);
           Routers.navigateTo(context, MineRouter.isRunModule ? Routers.minePage : Routers.mainPage, clearStack: true);
+
         }
       }
     });
@@ -122,7 +112,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
 
   void _checkInput() {
     setState(() {
-      if (!_agreeChecked || ObjectUtil.isEmpty(_phoneController.text) || ObjectUtil.isEmpty(_pwdController.text)) {
+      if (!_agreeChecked || ObjectUtil.isEmpty(_accountController.text) || ObjectUtil.isEmpty(_pwdController.text)) {
         _loginEnabled = false;
       } else {
         _loginEnabled = true;
@@ -131,12 +121,13 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
   }
 
   void _login() {
-    String phone = _phoneController.text;
+    String phone = _accountController.text;
     String pwd = _pwdController.text;
     int nonce = DateUtil.getNowDateMs() * 1000;
-    String pwdMd5 = EncryptUtil.encodeMd5(EncryptUtil.encodeMd5(pwd) + nonce.toString()).toLowerCase();
+    // String pwdMd5 = EncryptUtil.encodeMd5(EncryptUtil.encodeMd5(pwd) + nonce.toString()).toLowerCase();
+    Routers.navigateTo(context, MineRouter.isRunModule ? Routers.minePage : Routers.mainPage, clearStack: true);
+    // _loginModel.login(phone, pwd, nonce);
 
-    _loginModel.login(phone, pwdMd5, nonce);
   }
 
 
@@ -155,7 +146,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
         resizeToAvoidBottomInset:false,
         backgroundColor: Colours.white,
         body: CommonScrollView(
-          keyboardConfig: OtherUtil.getKeyboardActionsConfig(context, <FocusNode>[_phoneNode, _pwdNode]),
+          keyboardConfig: OtherUtil.getKeyboardActionsConfig(context, <FocusNode>[_accountNode, _pwdNode]),
           padding: const EdgeInsets.only(left:50.0, right: 50.0, top: 60.0),
           children: <Widget>[
             Center(child: LocalImage('logo', package: Constant.baseLib, width: 60, height: 60,)),
@@ -170,8 +161,8 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
             ),
             Gaps.vGap32,
             AccountTextField(
-              focusNode: _phoneNode,
-              controller: _phoneController,
+              focusNode: _accountNode,
+              controller: _accountController,
               onTextChanged: _checkInput,
             ),
             Gaps.vGap16,

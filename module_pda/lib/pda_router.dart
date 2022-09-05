@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:library_base/router/i_router.dart';
 import 'package:library_base/router/page_builder.dart';
 import 'package:library_base/router/routers.dart';
+import 'package:module_pda/page/express_delivery_page.dart';
 import 'package:module_pda/page/pick_page.dart';
 import 'package:module_pda/page/put_page.dart';
 import 'package:module_pda/page/take_page.dart';
@@ -30,6 +31,10 @@ class PdaRouter implements IRouter{
       PageBuilder(Routers.upcPage, (params) {
         Key? key = params?.getObj('key');
         return UpcPage(key: key);
+      }),
+      PageBuilder(Routers.expressDeliveryPage, (params) {
+        Key? key = params?.getObj('key');
+        return ExpressDeliveryPage(key: key);
       }),
     ];
   }

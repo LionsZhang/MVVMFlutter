@@ -6,6 +6,7 @@ import 'package:library_base/res/colors.dart';
 import 'package:library_base/router/routers.dart';
 import 'package:library_base/utils/image_util.dart';
 import 'package:library_base/utils/object_util.dart';
+import 'package:library_base/widget/textfield/commit_text_field.dart';
 import 'package:library_base/widget/textfield/oder_text_field.dart';
 import 'package:module_pda/pda_router.dart';
 import 'package:module_pda/viewmodel/take_view_model.dart';
@@ -80,7 +81,7 @@ class _ExpressDeliveryPageState extends State<ExpressDeliveryPage>
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text("入库-扫描快递单号",
+                              Text("新建快递单-信息录入",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -97,37 +98,27 @@ class _ExpressDeliveryPageState extends State<ExpressDeliveryPage>
                               SizedBox(
                                 height: 20,
                               ),
-                              Container(
-                                height: 50,
-                                alignment: Alignment.centerLeft,
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadiusDirectional.circular(15),
-                                    color: Colours.dark_app_main),
-                                child: Text("点击搜索用户名",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.0,
-                                      height: 1.2,
-                                    )),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  GestureDetector(
-                                    onTap: () => Routers.navigateTo(
-                                        context, Routers.putPage),
-                                    child: Image(
-                                      image: AssetImage(
-                                          ImageUtil.getImgPath('scan'),
-                                          package: package),
-                                      width: 80.0,
-                                      height: 60,
-                                    ),
+                                  Container(
+                                    height: 50,
+                                    width: 80,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadiusDirectional.circular(
+                                                16),
+                                        color: Colours.dark_app_main),
+                                    child: Text("物流单号:",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          height: 1.2,
+                                        )),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
                                   ),
                                   Expanded(
                                       flex: 1,
@@ -136,59 +127,171 @@ class _ExpressDeliveryPageState extends State<ExpressDeliveryPage>
                                         controller: _phoneController,
                                         onTextChanged: _checkInput,
                                       )),
-                                  GestureDetector(
-                                    onTap: () => Routers.navigateTo(
-                                        context, Routers.putPage),
-                                    child: Container(
-                                      height: 50,
-                                      width: 80,
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadiusDirectional.circular(
-                                                  16),
-                                          color: Colours.dark_app_main),
-                                      child: Text("输入",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.0,
-                                            height: 1.2,
-                                          )),
-                                    ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    height: 50,
+                                    width: 80,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            16),
+                                        color: Colours.dark_app_main),
+                                    child: Text("货位:",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          height: 1.2,
+                                        )),
                                   ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                      flex: 1,
+                                      child: OderTextField(
+                                        focusNode: _phoneNode,
+                                        controller: _phoneController,
+                                        onTextChanged: _checkInput,
+                                      )),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    height: 50,
+                                    width: 80,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            16),
+                                        color: Colours.dark_app_main),
+                                    child: Text("用户:",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          height: 1.2,
+                                        )),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                      flex: 1,
+                                      child: OderTextField(
+                                        focusNode: _phoneNode,
+                                        controller: _phoneController,
+                                        onTextChanged: _checkInput,
+                                      )),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    height: 50,
+                                    width: 80,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            16),
+                                        color: Colours.dark_app_main),
+                                    child: Text("备注:",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          height: 1.2,
+                                        )),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                      flex: 1,
+                                        child: CommitTextField(
+                                          focusNode: _phoneNode,
+                                          controller: _phoneController,
+                                          onTextChanged: _checkInput,
+                                      )),
                                 ],
                               ),
                               SizedBox(
                                 height: 20,
-                              ),
-                              Divider(
-                                height: 2,
-                                color: Colors.black,
                               ),
                             ],
                           ),
                           width: double.infinity,
                         ),
                         SizedBox(
-                          height: 250,
+                          height:100,
                         ),
-                        GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                          child: Container(
-                            height: 50,
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadiusDirectional.circular(15),
-                                color: Colours.dark_app_main),
-                            child: Text("返回",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  height: 1.2,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              flex: 1,
+                              child: GestureDetector(
+                                onTap: () => Navigator.pop(context),
+                                child: Container(
+                                  height: 50,
+                                  width: 100,
+                                  alignment: Alignment.center,
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadiusDirectional.circular(15),
+                                      color: Colours.dark_app_main),
+                                  child: Text("返回",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16.0,
+                                        height: 1.2,
+                                      )),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: GestureDetector(
+                                  onTap: () => Routers.navigateTo(
+                                      context, Routers.putPage),
+                                  child: Container(
+                                    height: 50,
+                                    width: 100,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            16),
+                                        color: Colours.dark_app_main),
+                                    child: Text("新增",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          height: 1.2,
+                                        )),
+                                  ),
                                 )),
-                          ),
+                          ],
                         ),
                       ],
                     ),
